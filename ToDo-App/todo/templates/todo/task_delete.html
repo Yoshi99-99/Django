@@ -1,13 +1,18 @@
+{% extends 'base.html' %}
 
-{% extends 'todo/base.html' %}
+{% block header %}
+<div class="p-3 mt-3 mb-3">
+    <h1>タスクの削除</h1>
+</div>
+{% endblock header %}
 
 {% block content%}
 
 <form action="" method="POST">
     {% csrf_token %}
-    <h2>{{ task.pk }}.{{ task.title }}</h2>
-    <p>このタスクを削除していいですか？</p>
-    <input type="submit" value="削除">
+    <p>「{{ task.title }}」を削除していいですか？</p>
+    <div class="d-grid gap-2 col-6 mx-left">
+        <input class="btn btn-danger" type="submit" value="削除">
+    </div>
 </form>
-
 {% endblock content%}

@@ -1,4 +1,4 @@
-{% extends 'todo/base.html' %}
+{% extends 'base.html' %}
 
 {% block header %}
 <div class="p-3 mt-3 mb-3">
@@ -17,7 +17,13 @@
     <table class="table">
         {{ form.as_table }}
     </table>
-    <input type="submit" value="送信">
+    <div class="d-grid gap-2 col-6 mx-left">
+        {% if 'new' in request.path %}
+        <input class="btn btn-success" type="submit" value="作成">
+        {% elif 'edit' in request.path %}
+        <input class="btn btn-success" type="submit" value="変更">
+        {% endif %}
+    </div>
 </form>
 
 {% endblock content%}
